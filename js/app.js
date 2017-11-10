@@ -25,23 +25,27 @@ $( () => {
 
 
   //on end of players turn:
-    //give next player a chance at love? - generate their plucking amount
+    //idea: give next player a chance at love? - generate their plucking amount
 
 
   const $container = $('.container');
-  const $rose = $('.rose');
+  const $rose = $('#rose');
   const $instructions = $('.instructions');
   const $menu = $('#menu');
   const $closeMenu = $('.close-menu');
+  const $petal = $('.falling-petal');
 
   const menu = () => {
     $menu.css('display', 'block');
   }
 
   const petals = () => {
-    //have petal glide out from behind rose
+    //falling petal on click of rose
+    $petal.addClass('fall');
     //dedtuct one play from current user
-    console.log('petals');
+    setTimeout(function() {
+    $petal.removeClass('fall');
+  }, 5000);
   }
 
   const closeBox = () => {

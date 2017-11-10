@@ -23,9 +23,43 @@ a {
   text-align: center;
 }
 
-.rose {
-  align-self: center;
+#rose {
   cursor: pointer;
+  z-index: 2;
+  /*opacity: .5;*/
+  /*display: none;*/
+}
+
+#petals {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: visible;
+  /*display:none;*/
+}
+
+.falling-petal {
+  width: 200px;
+  height: 200px;
+  background: #ce486a;
+  margin: 10em 10em;
+  opacity: 0;
+}
+
+.fall {
+  position: relative;
+  animation-name: box-step;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+}
+
+@keyframes box-step {
+  0% {opacity: .2; left:0; top:0;}
+  25% {opacity: 1}
+  100% {opacity: 0; left:0; top:20em; }
 }
 
 #menu {
@@ -35,7 +69,7 @@ a {
 	left: 0;
 	height: 100%;
 	width: 100%;
-	z-index: 1;
+	z-index: 99;
 	overflow: auto;
 	display:none;
 }
