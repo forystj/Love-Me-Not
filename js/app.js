@@ -32,6 +32,7 @@ $( () => {
   const $rose = $('#rose');
   const $instructions = $('.instructions');
   const $menu = $('#menu');
+  const $menuBox = $('.menu-box');
   const $closeMenu = $('.close-menu');
   const $petal = $('.falling-petal');
 
@@ -39,20 +40,33 @@ $( () => {
     $menu.css('display', 'block');
   }
 
-  const petals = () => {
+  const $startGame = $('#start-game');
+
+  const generatePetals = () => {
+    let petalAmount = Math.floor(Math.random() * 50);
+    console.log(petalAmount);
+  }
+
+
+  $startGame.on('click', generatePetals);
+
+
+
+  const petalPick = () => {
     //falling petal on click of rose
     $petal.addClass('fall');
-    //dedtuct one play from current user
-    setTimeout(function() {
+    setTimeout(() => {
     $petal.removeClass('fall');
-  }, 5000);
+    }, 5000);
+
+    //dedtuct one play from current user
   }
 
   const closeBox = () => {
     $menu.css('display', 'none');
   }
 
-  $rose.on('click', petals);
+  $rose.on('click', petalPick);
 
   $closeMenu.on('click', closeBox);
 

@@ -17,6 +17,7 @@ a {
   flex-direction: column;
 }
 
+
 .game {
   width: 100%;
   align-self: center;
@@ -26,8 +27,6 @@ a {
 #rose {
   cursor: pointer;
   z-index: 2;
-  /*opacity: .5;*/
-  /*display: none;*/
 }
 
 #petals {
