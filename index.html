@@ -14,15 +14,27 @@
     <div class="container">
 
       <div class="links">
-        <a class="instructions" href="#">INSTRUCTIONS</a>
-        <button id="start-game">Start Game</button>
-
+        <a class="instructions" href="#">Instructions</a>
+        <a id="start-game" href="#">Start Game</a>
       </div>
-
 
       <div class="game">
 
+        <div id="meter-container">
+          <div class="meter">
+            <div class="meter-ball">
+            </div>
+          </div>
+
+          <input type="number" id="count">
+          <input type="button" id="stop" value="stop">
+          <input type="button" id="start" value="start">
+
+        </div>
+
+        <div class="rose-container">
           <img id="rose" src="rose.png">
+        </div>
 
         <div id="petals">
           <div class="falling-petal">
@@ -30,17 +42,31 @@
           </div>
         </div>
 
+        <div id="right-box">
+          <h1 class="player-info"></h1>
+          <p class="chance-info"></p>
+          <a class="pass-turn" href="#">Pass the Rose</a>
+        </div>
+
         </div>
 
       </div>
 
-      <!-- instructions box -->
+      <!-- pop up boxes -->
 
       <div id="menu">
         <div id="menu-box">
           <a class="close-menu" href="#">x</a>
           <br>
           instructions here
+        </div>
+      </div>
+
+      <div id="start-menu">
+        <div id="start-box">
+          <a class="close-menu" href="#">x</a><br>
+
+
         </div>
       </div>
 

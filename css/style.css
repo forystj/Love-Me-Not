@@ -1,6 +1,5 @@
 body {
-  /*text-align: center;
-  margin: auto;*/
+  background-color: #dbdbdb;
 }
 
 a {
@@ -15,6 +14,7 @@ a {
   margin: auto;
   align-items: center;
   flex-direction: column;
+  width: 100%
 }
 
 
@@ -22,29 +22,38 @@ a {
   width: 100%;
   align-self: center;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.rose-container {
+  align-self: center;
+  margin: auto;
 }
 
 #rose {
   cursor: pointer;
-  z-index: 2;
+  /*z-index: 2;*/
 }
 
 #petals {
   position: absolute;
-  top: 0;
-  left: 0;
+  /*top: 0;
+  left: 0;*/
   height: 100%;
   width: 100%;
   z-index: -1;
   overflow: visible;
-  /*display:none;*/
+  display:flex;
 }
 
 .falling-petal {
+  align-self: center;
+  margin-left: 60%;
   width: 200px;
   height: 200px;
   background: #ce486a;
-  margin: 10em 10em;
+  /*margin: 10em 10em;*/
   opacity: 0;
 }
 
@@ -61,7 +70,59 @@ a {
   100% {opacity: 0; left:0; top:20em; }
 }
 
-#menu {
+#meter-container {
+  width: 500px;
+  height: 500px;
+  opacity: .5;
+  margin-left: 10%;
+}
+
+.meter {
+  position: absolute;
+  height: 500px;
+  width: 100px;
+  /*z-index: -1;*/
+  overflow: hidden;
+  background: url('../meter5.png');
+  background-size:  contain;
+  display:inline-block;
+  margin-top: 20px;
+}
+
+.meter-ball {
+  width: 20px;
+  height: 20px;
+  background: #ce486a;
+  /*margin: 10em 10em;*/
+  border-radius: 100%;
+  /*opacity: 0;*/
+}
+
+.meter-ball-move {
+  position: relative;
+  animation-name: meterClick;
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+@keyframes meterClick {
+  0% {top:100%;}
+  100% {top:0%;}
+}
+
+#count {
+  /*display: none;*/
+}
+
+#right-box {
+  min-width: 25%;
+  height: 600px;
+  background-color: #fff;
+}
+
+
+#menu, #start-menu {
 	background-color: rgba(168, 129, 136, .2);
 	position: fixed;
 	top: 0;
@@ -73,11 +134,11 @@ a {
 	display:none;
 }
 
-#menu-box {
+#menu-box, #start-box {
 	color: #ddaab3;
 	background-color: rgba(255, 255, 255, 0.9);
 	height: 200px;
-	width: 200px;
+	width: 300px;
 	padding: 1em;
 	border: 10px solid #ddaab3;
 	border-radius: 40px;
