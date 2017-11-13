@@ -1,5 +1,5 @@
 body {
-  background-color: #dbdbdb;
+  background-color: #edd8cb;
 }
 
 a {
@@ -42,17 +42,17 @@ a {
   left: 0;*/
   height: 100%;
   width: 100%;
-  z-index: -1;
   overflow: visible;
   display:flex;
+  z-index: -1;
 }
 
 .falling-petal {
   align-self: center;
   margin-left: 60%;
-  width: 200px;
-  height: 200px;
-  background: #ce486a;
+  width: 300px;
+  height: 350px;
+  background: url('../petal.png');
   /*margin: 10em 10em;*/
   opacity: 0;
 }
@@ -118,7 +118,7 @@ a {
 #right-box {
   min-width: 25%;
   height: 600px;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 
 
@@ -137,13 +137,14 @@ a {
 #menu-box, #start-box {
 	color: #ddaab3;
 	background-color: rgba(255, 255, 255, 0.9);
-	height: 200px;
-	width: 300px;
+	height: 400px;
+	width: 500px;
 	padding: 1em;
 	border: 10px solid #ddaab3;
 	border-radius: 40px;
-	margin: 150px auto;
+	margin: 90px auto;
 	box-shadow: 0 5px 4px rgba(168, 129, 136, 0.2);
-  text-align: center;
-  font-size: 50px;
+  /*text-align: center;*/
+  /*font-size: 50px;*/
+  line-height: normal;
 }

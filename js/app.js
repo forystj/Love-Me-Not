@@ -43,7 +43,7 @@ $( () => {
     $menu.css('display', 'block');
   }
 
-  const $startGame = $('#start-game');
+  const $startGame = $('.start-game');
 
   let petalAmount = [];
 
@@ -107,7 +107,7 @@ $( () => {
   const startBox = () => {
     choosePlayer();
     $startMenu.css('display', 'block');
-    $startBox.html('Player ' + $currentPlayer + ' Starts!' + '<br>' + 'you are starting with')
+    // $startBox.html('Player ' + $currentPlayer + ' Starts!' + '<br>' + 'you are starting with')
   }
 
   // const $rightBox = $('#right-box');
@@ -170,6 +170,6 @@ $( () => {
 
   $closeMenu.on('click', closeBox);
 
-  // startBox();
+  startBox();
 
 });
