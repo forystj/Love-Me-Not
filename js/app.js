@@ -1,46 +1,48 @@
 $( () => {
 
-  //game name: "They love me not"
-
-  //make a game where there are two players and a rose
-
-  //rose has a random generated number of petals
-
-  //each player click decreases petal amount
-
-  //current player has random generated amount of moves
-  //the amount of moves they take is up to them
-
-  //current player clicks rose to remove petals
-    //idea: rose is generated with math.random a number make it = i
-    //when user clicks i--
-
-  //player to pluck last petal loses the game
-
-  //when game is over: text box saying player_ will "never find love"
-
-  //rose becomes dead and gloomy
-
-  //restart game option
-
-
-  //on end of players turn:
-    //idea: give next player a chance at love? - generate their plucking amount
-
-
+  //mains
   const $container = $('.container');
   const $rose = $('#rose');
-  const $instructions = $('.instructions');
-  const $menu = $('#menu');
-  const $menuBox = $('.menu-box');
-  const $closeMenu = $('.close-menu');
   const $petal = $('.falling-petal');
-  const $startMenu = $('#start-menu');
+
+  const $instructions = $('.instructions');
+
+  // modals
+  const $instModal = $('#inst-modal');
+  const $instBox = $('#inst-box');
+  const $closeModal = $('.close-modal');
+  const $startModal = $('#start-modal');
   const $startBox = $('#start-box');
+  const $startRiskModal = $('#start-risk-modal');
+
+
+  //meter
   const $meterBall = $('.meter-ball');
 
-  const instructionsMenu = () => {
-    $menu.css('display', 'block');
+
+  let $currentPlayer = [];
+
+
+  const playGame = (event) => {
+    if ($currentPlayer === 1) {
+
+
+      //player has _ amount of picks
+      //let pick until that amount is up or they choose to give up the rest of picks
+        //if used all picks -  $rose.off('click');
+        //if give up picks - clear pick amount to 0
+      //alert their turn is over
+      //give button to temp next player with petal picks
+      //on click, generate amount for next player's turn
+      //change to next player
+      $currentPlayer = 2;
+    } else if ($currentPlayer === 2) {
+      }
+  }
+
+
+  const instructionsModal = () => {
+    $instModal.css('display', 'block');
   }
 
   const $startGame = $('.start-game');
@@ -72,26 +74,13 @@ $( () => {
   }
 
   const closeBox = () => {
-    $menu.css('display', 'none');
-    $startMenu.css('display', 'none');
+    $instModal.css('display', 'none');
+    $startModal.css('display', 'none');
   }
 
-  const playGame = (event) => {
-    if ($currentPlayer === 1) {
-      //player has _ amount of picks
-      //let pick until that amount is up or they choose to give up the rest of picks
-        //if used all picks -  $rose.off('click');
-        //if give up picks - clear pick amount to 0
-      //alert their turn is over
-      //give button to temp next player with petal picks
-      //on click, generate amount for next player's turn
-      //change to next player
-      $currentPlayer = 2;
-    } else if ($currentPlayer === 2) {
-      }
+  const autoClose = () => {
+    $startRiskModal.css('display', 'none');
   }
-
-  let $currentPlayer = [];
 
   const choosePlayer = () => {
     $currentPlayer = Math.floor(Math.random() * 2) + 1;
@@ -106,17 +95,17 @@ $( () => {
 
   const startBox = () => {
     choosePlayer();
-    $startMenu.css('display', 'block');
-    // $startBox.html('Player ' + $currentPlayer + ' Starts!' + '<br>' + 'you are starting with')
+    $startModal.css('display', 'block');
+
   }
 
   // const $rightBox = $('#right-box');
 
   let $playerInfo = $('.player-info');
-  let $chanceInfo = $('.chance-info');
+  let $pickInfo = $('.pick-info');
   const rightInfo = () => {
     $playerInfo.text("Player " + $currentPlayer + "'s Turn!");
-    $chanceInfo.text("You have: " + " chances left");
+    $pickInfo.text("You have: " + " chances left");
   }
 
 //===========counter=========================
@@ -127,24 +116,31 @@ $( () => {
       clearInterval(add);
     }
   }
-  // start();
+
+
+  $('#start').on('click', () => {
+    start();
+    $meterBall.addClass('meter-ball-move');
+
+    setTimeout(() => {
+    $meterBall.removeClass('meter-ball-move');
+    }, 20000);
+
+  });
 
   $('#stop').on('click', () => {
     clearInterval(add);
     console.log(count.value);
+    $meterContainer.css('opacity', '0.5');
+    $rose.css('opacity', '1')
   });
 
-  // const $meter = $('.meter');
 
-  $('#start').on('click', () => {
-    start();
-    // $meter.css('display', 'inline-block')
-
-    $meterBall.addClass('meter-ball-move');
-    setTimeout(() => {
-    $meterBall.removeClass('meter-ball-move');
-  }, 20000);
-  });
+  const startRisk = () => {
+    $startRiskModal.css('display', 'inline-block');
+    setTimeout(autoClose, 3000);
+    $meterContainer.css('opacity', '1');
+  }
 
   //=========on clicks==========================
 
@@ -154,13 +150,13 @@ $( () => {
     $meterContainer.css('opacity', '1');
   })
 
-  $instructions.on('click', instructionsMenu);
+  $instructions.on('click', instructionsModal);
 
   $startGame.on('click', () => {
     generatePetals();
     choosePlayer();
     rightInfo();
-    // startBox();
+    startRisk();
   });
 
   $rose.on('click', () => {
@@ -168,7 +164,7 @@ $( () => {
     decreasePetals();
   });
 
-  $closeMenu.on('click', closeBox);
+  $closeModal.on('click', closeBox);
 
   startBox();
 
