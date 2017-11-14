@@ -64,11 +64,13 @@ $( () => {
       $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
       rightInfo();
       setTimeout(startRisk, 3000);
+      count.value = 0;
     } else if ($currentPlayer === 2) {
       $currentPlayer = 1;
       $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
       rightInfo();
       setTimeout(startRisk, 3000);
+      count.value = 0;
       }
 
   }
@@ -134,9 +136,6 @@ $( () => {
   let add;
   const start = () => {
       add = setInterval('count.value++',800);
-     if (count.value > 5) {
-      clearInterval(add);
-    }
   }
 
 
