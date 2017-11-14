@@ -54,13 +54,40 @@ $( () => {
     console.log(petalAmount);
   }
 
+  const $pickResultsModal = $('#pick-results-modal');
+
+  const changePlayer = () => {
+    $pickResultsModal.css('display', 'inline-block');
+    setTimeout(autoClose, 3000);
+    if ($currentPlayer === 1) {
+      $currentPlayer = 2;
+      $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
+      rightInfo();
+      setTimeout(startRisk, 3000);
+    } else if ($currentPlayer === 2) {
+      $currentPlayer = 1;
+      $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
+      rightInfo();
+      setTimeout(startRisk, 3000);
+      }
+
+  }
+
+  const pickResults = () => {
+    $rose.css('opacity', '0.5');
+    changePlayer();
+  }
+
+
   const decreasePetals = () => {
-    //deduct one play from current user
-    petalAmount -= 1;
+    //deduct one play from current petal amount
+    petalAmount -= count.value;
     //dissable button when at 0
-    if (petalAmount === 0){
+    if (petalAmount <= 0){
       alert('player _ wins!')
       $rose.off('click');
+    } else if (petalAmount !== 0) {
+      setTimeout(pickResults, 3000);
     }
     console.log(petalAmount);
   };
@@ -80,17 +107,12 @@ $( () => {
 
   const autoClose = () => {
     $startRiskModal.css('display', 'none');
+    $meterResultsModal.css('display', 'none');
+    $pickResultsModal.css('display', 'none');
   }
 
   const choosePlayer = () => {
     $currentPlayer = Math.floor(Math.random() * 2) + 1;
-    if ($currentPlayer === 1) {
-      // alert('player one starts!');
-      // playGame();
-    } else if ($currentPlayer === 2) {
-      // alert('player two starts!');
-      // playGame();
-      }
   }
 
   const startBox = () => {
@@ -105,7 +127,7 @@ $( () => {
   let $pickInfo = $('.pick-info');
   const rightInfo = () => {
     $playerInfo.text("Player " + $currentPlayer + "'s Turn!");
-    $pickInfo.text("You have: " + " chances left");
+    $pickInfo.text("Petals picked: " );
   }
 
 //===========counter=========================
@@ -132,9 +154,20 @@ $( () => {
     clearInterval(add);
     console.log(count.value);
     $meterContainer.css('opacity', '0.5');
-    $rose.css('opacity', '1')
+    meterResults();
   });
 
+  const startRose = () => {
+    $rose.css('opacity', '1');
+  }
+
+  const $meterResultsModal = $('#meter-results-modal');
+  const meterResults = () => {
+    $('.meter-results').html(count.value + ' picks');
+    $meterResultsModal.css('display', 'inline-block');
+    setTimeout(autoClose, 3000);
+    setTimeout(startRose, 3000);
+  }
 
   const startRisk = () => {
     $startRiskModal.css('display', 'inline-block');

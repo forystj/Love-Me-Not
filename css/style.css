@@ -173,3 +173,49 @@ a {
 	margin: 90px auto;
   line-height: normal;
 }
+
+#meter-results-modal {
+	background-color: rgba(168, 129, 136, .2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+	overflow: auto;
+	display:none;
+}
+
+#meter-results-box {
+	color: black;
+  font-size: 30px;
+	height: 200px;
+	width: 400px;
+	padding: 1em;
+	border-radius: 40px;
+	margin: 90px auto;
+  line-height: normal;
+}
+
+#pick-results-modal {
+	background-color: rgba(168, 129, 136, .2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
+	overflow: auto;
+	display:none;
+}
+
+#pick-results-box {
+	color: black;
+  font-size: 30px;
+	height: 200px;
+	width: 400px;
+	padding: 1em;
+	border-radius: 40px;
+	margin: 90px auto;
+  line-height: normal;
+}
