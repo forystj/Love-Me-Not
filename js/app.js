@@ -128,8 +128,9 @@ $( () => {
       add = setInterval('count.value++',232);
 }
 
+"use strict";
 
-  $('#start').on('click', () => {
+  $('#start').on('click', (event) => {
     start();
     $meterBall.css('display', 'inline-block').addClass('meter-ball-move');
   });
@@ -140,11 +141,14 @@ $( () => {
     $meterContainer.css('opacity', '0.5');
     meterResults();
     // petalsPicked.push(count.value);
-    // $meterBall.addClass('pauseBall');
+    $meterBall.addClass('pause-ball');
   });
 
   const startRose = () => {
     $rose.css('opacity', '1');
+    $meterBall.removeClass('meter-ball-move');
+    $meterBall.css('display', 'none');
+    $meterBall.removeClass('pause-ball');
   }
 
   const $meterResultsModal = $('#meter-results-modal');
@@ -160,8 +164,6 @@ $( () => {
     setTimeout(autoClose, 3000);
     $meterContainer.css('opacity', '1');
   }
-
-  //=========on clicks==========================
 
   const $meterContainer = $('#meter-container');
   const $passTurn = $('.pass-turn');
@@ -187,7 +189,6 @@ $( () => {
     petalPick();
     decreasePetals();
     rightPicks();
-    // $meterBall.addClass('meter-ball-move');
   });
 
   $closeModal.on('click', closeBox);
