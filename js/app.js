@@ -77,6 +77,7 @@ $( () => {
     //dissable button when at 0
     if (petalAmount <= 0){
       alert('player _ wins!')
+      $rose.attr('src', 'dead_rose.png');
       $rose.off('click');
     } else if (petalAmount !== 0) {
       setTimeout(pickResults, 3000);
@@ -124,18 +125,13 @@ $( () => {
 //===========counter=========================
   let add;
   const start = () => {
-      add = setInterval('count.value++',800);
-  }
+      add = setInterval('count.value++',232);
+}
 
 
   $('#start').on('click', () => {
     start();
     $meterBall.css('display', 'inline-block').addClass('meter-ball-move');
-
-    // setTimeout(() => {
-    // $meterBall.removeClass('meter-ball-move');
-    // }, 20000);
-
   });
 
   $('#stop').on('click', () => {
@@ -144,7 +140,7 @@ $( () => {
     $meterContainer.css('opacity', '0.5');
     meterResults();
     // petalsPicked.push(count.value);
-    $meterBall.addClass('meter-ball-pause');
+    // $meterBall.addClass('pauseBall');
   });
 
   const startRose = () => {
@@ -191,7 +187,7 @@ $( () => {
     petalPick();
     decreasePetals();
     rightPicks();
-    // $rose.css('background', 'url(rose_click.png)')
+    // $meterBall.addClass('meter-ball-move');
   });
 
   $closeModal.on('click', closeBox);

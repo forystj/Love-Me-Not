@@ -1,11 +1,26 @@
 body {
   background-color: #ffe8e0;
+  /*#494949*/
 }
 
 a {
   color: #ddaab3;
   font-size: 20px;
   text-decoration: none;
+}
+
+h1.risk, h1.meter-results, h1.new-player {
+  font-size: 70px;
+  color: white;
+  line-height: 50px;
+  opacity: 0.8
+}
+
+h1.player-info {
+  font-size: 80px;
+  color: pink;
+  line-height: 90px;
+  opacity: 0.8
 }
 
 /*.container {
@@ -18,6 +33,7 @@ a {
 
 ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
 
@@ -41,7 +57,7 @@ ul {
   cursor: pointer;
   /*z-index: 2;*/
   opacity: 0.7;
-  background: url('rose.png');
+  /*background: url('rose.png');*/
 }
 
 #petals {
@@ -67,12 +83,12 @@ ul {
 
 .fall {
   position: relative;
-  animation-name: box-step;
+  animation-name: petal-fall;
   animation-duration: 5s;
   animation-iteration-count: 1;
 }
 
-@keyframes box-step {
+@keyframes petal-fall {
   0% {opacity: .2; left:0; top:0;}
   25% {opacity: 1}
   100% {opacity: 0; left:0; top:20em; }
@@ -82,6 +98,7 @@ ul {
     background: none;
     border: none;
     font-size: 20px;
+    color: #bd3c5b;
 }
 
 #meter-container {
@@ -114,22 +131,24 @@ ul {
   display: none;
 }
 
+/*.pause-ball {
+  animation-play-state: paused;
+}*/
+
 .meter-ball-move {
+  /*animation-play-state: running;*/
   position: relative;
   animation-name: meterClick;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 
 }
 
-.meter-ball-pause {
-    animation-play-state: paused;
-}
-
 @keyframes meterClick {
   0% {top:67%;}
-  100% {top:30%;}
+  100% {top:30%; animation-play-state: paused;
+}
 }
 
 #count {
@@ -186,11 +205,10 @@ ul {
 #start-risk-box {
 	color: black;
   font-size: 30px;
-	height: 200px;
-	width: 400px;
 	padding: 1em;
 	border-radius: 40px;
-	margin: 90px auto;
+	margin-top: 10%;
+  margin-left: 5%;
   line-height: normal;
 }
 
