@@ -77,7 +77,7 @@ $( () => {
     //dissable button when at 0
     if (petalAmount <= 0){
       alert('player _ wins!')
-      $rose.attr('src', 'dead_rose.png');
+      $rose.attr('src', '../dead_rose.png');
       $rose.off('click');
     } else if (petalAmount !== 0) {
       setTimeout(pickResults, 3000);
@@ -127,8 +127,6 @@ $( () => {
   const start = () => {
       add = setInterval('count.value++',232);
 }
-
-"use strict";
 
   $('#start').on('click', (event) => {
     start();
