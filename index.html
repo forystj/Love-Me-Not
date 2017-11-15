@@ -11,25 +11,23 @@
   <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
-    <div class="container">
+    <!-- <div class="container"> -->
 
-      <div class="links">
+      <!-- <div class="links">
         <a class="instructions" href="#">Instructions</a>
         <a id="start-game" href="#">New Game</a>
-      </div>
+      </div> -->
 
       <div class="game">
 
         <div id="meter-container">
+          <input type="number" id="count">
+          <input type="button" id="stop" value="stop">
+          <input type="button" id="start" value="start">
           <div class="meter">
             <div class="meter-ball">
             </div>
           </div>
-
-          <input type="number" id="count">
-          <input type="button" id="stop" value="stop">
-          <input type="button" id="start" value="start">
-
         </div>
 
         <div class="rose-container">
@@ -43,13 +41,17 @@
         </div>
 
         <div id="right-box">
+          <ul>
+            <li><a class="instructions" href="#">Instructions</a></li>
+            <li><a id="start-game" href="#">New Game</a></li>
+          </ul>
           <h1 class="player-info"></h1>
           <p class="pick-info"></p>
         </div>
 
-        </div>
+        <!-- </div> -->
 
-      </div>
+      <!-- </div> -->
 
       <!-- pop up boxes -->
 
@@ -63,9 +65,8 @@
 
       <div id="start-risk-modal">
         <div id="start-risk-box">
-          Player __ has been given the rose<br>
           Risk Eternal Love<br>
-          <-
+          <img src="arrow.png">
         </div>
       </div>
 

@@ -16,29 +16,19 @@ $( () => {
   const $startRiskModal = $('#start-risk-modal');
 
 
+  // let petalsPicked = [];
+  //
+  // let total = 0;
+  // for (var i = 0; i < petalsPicked.length; i++) {
+  //   total += someArray[i];
+  // }
+
+
   //meter
   const $meterBall = $('.meter-ball');
 
 
   let $currentPlayer = [];
-
-
-  const playGame = (event) => {
-    if ($currentPlayer === 1) {
-
-
-      //player has _ amount of picks
-      //let pick until that amount is up or they choose to give up the rest of picks
-        //if used all picks -  $rose.off('click');
-        //if give up picks - clear pick amount to 0
-      //alert their turn is over
-      //give button to temp next player with petal picks
-      //on click, generate amount for next player's turn
-      //change to next player
-      $currentPlayer = 2;
-    } else if ($currentPlayer === 2) {
-      }
-  }
 
 
   const instructionsModal = () => {
@@ -64,13 +54,13 @@ $( () => {
       $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
       rightInfo();
       setTimeout(startRisk, 3000);
-      count.value = 0;
+      count.value = [];
     } else if ($currentPlayer === 2) {
       $currentPlayer = 1;
       $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
       rightInfo();
       setTimeout(startRisk, 3000);
-      count.value = 0;
+      count.value = [];
       }
 
   }
@@ -128,8 +118,7 @@ $( () => {
   let $playerInfo = $('.player-info');
   let $pickInfo = $('.pick-info');
   const rightInfo = () => {
-    $playerInfo.text("Player " + $currentPlayer + "'s Turn!");
-    $pickInfo.text("Petals picked: " );
+    $playerInfo.html("Player " + "<br>" + $currentPlayer);
   }
 
 //===========counter=========================
@@ -141,11 +130,11 @@ $( () => {
 
   $('#start').on('click', () => {
     start();
-    $meterBall.addClass('meter-ball-move');
+    $meterBall.css('display', 'inline-block').addClass('meter-ball-move');
 
-    setTimeout(() => {
-    $meterBall.removeClass('meter-ball-move');
-    }, 20000);
+    // setTimeout(() => {
+    // $meterBall.removeClass('meter-ball-move');
+    // }, 20000);
 
   });
 
@@ -154,6 +143,8 @@ $( () => {
     console.log(count.value);
     $meterContainer.css('opacity', '0.5');
     meterResults();
+    // petalsPicked.push(count.value);
+    $meterBall.addClass('meter-ball-pause');
   });
 
   const startRose = () => {
@@ -191,9 +182,16 @@ $( () => {
     startRisk();
   });
 
+  const rightPicks = () => {
+    $pickInfo.text("Petals picked: " );
+  }
+  // + total
+
   $rose.on('click', () => {
     petalPick();
     decreasePetals();
+    rightPicks();
+    // $rose.css('background', 'url(rose_click.png)')
   });
 
   $closeModal.on('click', closeBox);
