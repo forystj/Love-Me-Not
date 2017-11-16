@@ -11,23 +11,33 @@
   <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
+<div id="container">
+
+  <div id="right-box">
+    <ul>
+      <li><a class="instructions" href="#">Instructions</a></li>
+    </ul>
+      <h1 class="player-info"></h1>
+      <ul>
+        <li><a id="start-game" href="#">New Game</a></li>
+</ul>
+    <p class="pick-info"></p>
+  </div>
 
     <div class="game">
 
       <div id="meter-container">
+        <div class="start-stop">
+          <input type="number" id="count">
+          <input type="button" id="start" value="start">
+          <input type="button" id="stop" value="stop">
+        </div>
         <div class="meter">
           <div class="meter-ball">
           </div>
         </div>
       </div>
 
-      <div id="count-buttons">
-        <div class="start-stop">
-          <input type="number" id="count">
-          <input type="button" id="stop" value="stop">
-          <input type="button" id="start" value="start">
-        </div>
-      </div>
 
       <div class="rose-container">
         <img id="rose" src="rose.png">
@@ -44,20 +54,16 @@
         </div>
       </div>
 
-      <div id="right-box">
-        <ul>
-          <li><a class="instructions" href="#">Instructions</a></li>
-          <li><a id="start-game" href="#">New Game</a></li>
-        </ul>
-        <h1 class="player-info"></h1>
-        <p class="pick-info"></p>
-      </div>
-
       <div id="inst-modal">
         <div id="inst-box">
           <a class="close-modal" href="#">x</a>
-          <br>
-          instructions here
+          <ul>
+          <li>Once you hit start game at the bottom, the player to go first will be determined by the Rose's magic.</li>
+          <li>First, you will risk eternal love by clicking <b>start</b> on the risk meter on the left</li>
+          <li>Click <b>stop</b> to claim how many petals you'd like to pick - but be careful, you don't want to get the last petal!<li>
+          <li>Next, test your luck while using your picks by clicking the rose on the right - and find out if your risk has paid off!</li>
+          <li>The rose will then be passed to the next player where they will begin at the meter again.<li>
+          <li>Pass the rose back and forth until one of you claims the reward of eternal love, and the other is given the curse of never finding love.
         </div>
       </div>
 
@@ -98,5 +104,6 @@
       </div>
 
     </div>
+  </div>
   </body>
 </html>
