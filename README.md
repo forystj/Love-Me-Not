@@ -5,7 +5,7 @@ Played by taking turns picking petals from a rose, the player to pick the last p
 
 ## Built With
 
-- HTML - CSS - jQUERY -
+| HTML | CSS | jQUERY |
 <br>
 All graphics designed by Foryst Jankela.
 
