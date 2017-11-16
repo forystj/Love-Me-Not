@@ -38,6 +38,12 @@ Using a combination of event listeners and randomization in jQuery with CSS anim
 - The rose will then be passed to the next player where they will begin at the meter again.
 - Pass the rose back and forth until one of you claims the reward of eternal love, and the other is given the curse of never finding love.
 
+## What I would add in the future
+
+- Media Queries for scaleability
+- A running total of petal picks so far
+- More graphic design features
+
 
 ## Author
 
