@@ -16,15 +16,6 @@ $( () => {
   const $startRiskModal = $('#start-risk-modal');
   const $winModal = $('#win-modal');
 
-
-  // let petalsPicked = [];
-  //
-  // let total = 0;
-  // for (var i = 0; i < petalsPicked.length; i++) {
-  //   total += someArray[i];
-  // }
-
-
   //meter
   const $meterBall = $('.meter-ball');
 
@@ -39,7 +30,6 @@ $( () => {
 
   const generatePetals = () => {
     petalAmount = Math.floor(Math.random() * 20) + 10;
-    console.log(petalAmount);
   }
 
   const $pickResultsModal = $('#pick-results-modal');
@@ -50,13 +40,13 @@ $( () => {
     if ($currentPlayer === 1) {
       $currentPlayer = 2;
       $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
-      rightInfo();
+      topInfo();
       setTimeout(startRisk, 3000);
       count.value = [];
     } else if ($currentPlayer === 2) {
       $currentPlayer = 1;
       $('.new-player').text("Player " + $currentPlayer + " has been passed the rose");
-      rightInfo();
+      topInfo();
       setTimeout(startRisk, 3000);
       count.value = [];
       }
@@ -67,8 +57,6 @@ $( () => {
     $rose.css('opacity', '0.5');
     changePlayer();
   }
-
-  // $playerInfo.html("Player " + $currentPlayer);
 
   const decreasePetals = () => {
     //deduct one play from current petal amount
@@ -82,7 +70,6 @@ $( () => {
     } else if (petalAmount !== 0) {
       setTimeout(pickResults, 3000);
     }
-    console.log(petalAmount);
   };
 
   const petalPick = () => {
@@ -92,13 +79,18 @@ $( () => {
     }, 5000);
   }
 
+  const restart = () => {
+    window.location.reload(true);
+  }
+
+  $('.restart').on('click', restart);
+
   const $startGame = $('.start-game');
   const $newGame = $('#new-game');
 
   const newGame = () => {
-    petalAmount = 0;
+    petalAmount = [];
     startBox();
-
   }
 
   const closeBox = () => {
@@ -122,16 +114,23 @@ $( () => {
 
   }
 
-  // const $rightBox = $('#right-box');
-
   let $playerInfo = $('.player-info');
   let $pickInfo = $('.pick-info');
-  const rightInfo = () => {
+  const topInfo = () => {
     $playerInfo.html("Player " + $currentPlayer);
   }
 
-//===========counter=========================
+  const $firstInstClick = $('.first-inst');
+
+  const firstInst = () => {
+    $startModal.css('display', 'none');
+    $instModal.css('display', 'block');
+  }
+
+  $firstInstClick.on('click', firstInst);
+
   let add;
+
   const start = () => {
     add = setInterval('count.value++',232);
 }
@@ -143,10 +142,8 @@ $( () => {
 
   $('#stop').on('click', () => {
     clearInterval(add);
-    console.log(count.value);
     $meterContainer.css('opacity', '0.5');
     meterResults();
-    // petalsPicked.push(count.value);
     $meterBall.addClass('pause-ball');
   });
 
@@ -182,18 +179,13 @@ $( () => {
   $startGame.on('click', () => {
     generatePetals();
     choosePlayer();
-    rightInfo();
+    topInfo();
     startRisk();
   });
-
-  const rightPicks = () => {
-    $pickInfo.text("Petals picked: " );
-  }
 
   $rose.on('click', () => {
     petalPick();
     decreasePetals();
-    rightPicks();
   });
 
   $closeModal.on('click', closeBox);

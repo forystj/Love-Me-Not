@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Rose Petal Game</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300" rel="stylesheet">
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -13,14 +15,14 @@
   <body>
 <div id="container">
 
-  <div id="right-box">
+  <div id="top-box">
     <ul>
       <li><a class="instructions" href="#">Instructions</a></li>
     </ul>
       <h1 class="player-info"></h1>
       <ul>
-        <li><a id="new-game" href="#">New Game</a></li>
-</ul>
+      <li><a id="new-game" href="#">New Game</a></li>
+    </ul>
     <p class="pick-info"></p>
   </div>
 
@@ -56,17 +58,18 @@
 
       <div id="inst-modal">
         <div id="inst-box">
+          <h1 class="modal">instructions</h1>
+          - Once you hit start game at the bottom, the player to go first will be determined by the Rose's magic.<br>
+          - First, you will risk eternal love by clicking <b>start</b> on the risk meter on the left<br>
+          - Click <b>stop</b> to claim how many petals you'd like to pick, but be careful, you don't want to get the last petal!<br>
+          - Next, test your luck while using your picks by clicking the rose on the right - and find out if your risk has paid off!<br>
+          - The rose will then be passed to the next player where they will begin at the meter again.<br>
+          - Pass the rose back and forth until one of you claims the reward of eternal love, and the other is given the curse of never finding love.<br><br>
+          <a class="start-game close-modal" href="#">Start Game</a>
+          <br><br>
           <a class="close-modal" href="#">x</a>
-          <ul>
-          <li>Once you hit start game at the bottom, the player to go first will be determined by the Rose's magic.</li>
-          <li>First, you will risk eternal love by clicking <b>start</b> on the risk meter on the left</li>
-          <li>Click <b>stop</b> to claim how many petals you'd like to pick - but be careful, you don't want to get the last petal!<li>
-          <li>Next, test your luck while using your picks by clicking the rose on the right - and find out if your risk has paid off!</li>
-          <li>The rose will then be passed to the next player where they will begin at the meter again.<li>
-          <li>Pass the rose back and forth until one of you claims the reward of eternal love, and the other is given the curse of never finding love.
         </div>
       </div>
-
 
       <div id="meter-results-modal">
         <div id="meter-results-box">
@@ -85,28 +88,30 @@
       <div id="start-modal">
         <div id="start-box">
           <center>
-          <h1>Love Me Not</h1>
-          Congratulations, you and a friend have picked a magical rose!
-          Unfortunately, this rose has a curse.
-          The conditions are much like the childrens game "They love me, they love me not", but with a dark twist.
-          This rose will curse the player who picks its very last petal - and that player will be doomed to never find love, while the winner will find eternal love.
-          You do not know how many petals the rose has.
-          You will take turns picking as many petals as you have risked before the game ends and one of you will be alone forever.
-          Each turn, you will have one chance to claim the amount of petals you will pick.
-          Once you click the rose, the amount of petals you have risked will be picked.
-          <br><br>
-          Good Luck!
-          <br><br>
-          <a class="start-game close-modal" href="#">Start Game</a>
+          <h1 class="modal">love me not</h1 class="modal">
+          Congratulations, you and a friend have picked a magical rose!<Br>
+          Unfortunately, this rose has a curse.<br>
+          The conditions are like the childrens game:<br> "They love me, they love me not",<br>
+          but with a dark twist.<br>
+          This rose will curse the player who picks its very last petal - <br>and that player will be doomed to never find love <br>while the winner...won't be cursed.<br>
+          You do not know how many petals the rose has.<br>
+          You will take turns picking the petals from the rose before the game ends <br>leaving one of you to be alone forever.<br>
+          Each turn, you will have one chance to claim the amount of petals you will pick.<br>
+          Once you click the rose, <br>the amount of petals you have risked will be picked.<br>
+          <a class="first-inst" href="#">Instructions</a>
           </center>
         </div>
       </div>
 
       <div id="win-modal">
         <div id="win-box">
+          <p class="win">
           You have picked the last petal<br>
           Sorry, Player <span class="loser"></span><br>
           You will never find love.
+          <br><br>
+          <a class="restart" href="#">x</a>
+        </p>
         </div>
       </div>
 
