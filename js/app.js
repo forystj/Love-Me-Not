@@ -14,6 +14,7 @@ $( () => {
   const $startModal = $('#start-modal');
   const $startBox = $('#start-box');
   const $startRiskModal = $('#start-risk-modal');
+  const $winModal = $('#win-modal');
 
 
   // let petalsPicked = [];
@@ -30,12 +31,9 @@ $( () => {
 
   let $currentPlayer = [];
 
-
   const instructionsModal = () => {
     $instModal.css('display', 'block');
   }
-
-  const $startGame = $('.start-game');
 
   let petalAmount = [];
 
@@ -70,13 +68,15 @@ $( () => {
     changePlayer();
   }
 
+  // $playerInfo.html("Player " + $currentPlayer);
 
   const decreasePetals = () => {
     //deduct one play from current petal amount
     petalAmount -= count.value;
     //dissable button when at 0
     if (petalAmount <= 0){
-      alert('player _ wins!')
+      $('.loser').html($currentPlayer);
+      $winModal.css('display', 'block');
       $rose.attr('src', 'dead_rose.png');
       $rose.off('click');
     } else if (petalAmount !== 0) {
@@ -86,11 +86,19 @@ $( () => {
   };
 
   const petalPick = () => {
-    //falling petal on click of rose
     $petal.addClass('fall');
     setTimeout(() => {
     $petal.removeClass('fall');
     }, 5000);
+  }
+
+  const $startGame = $('.start-game');
+  const $newGame = $('#new-game');
+
+  const newGame = () => {
+    petalAmount = 0;
+    startBox();
+
   }
 
   const closeBox = () => {
@@ -181,7 +189,6 @@ $( () => {
   const rightPicks = () => {
     $pickInfo.text("Petals picked: " );
   }
-  // + total
 
   $rose.on('click', () => {
     petalPick();
@@ -190,6 +197,8 @@ $( () => {
   });
 
   $closeModal.on('click', closeBox);
+
+  $newGame.on('click', newGame);
 
   startBox();
 
